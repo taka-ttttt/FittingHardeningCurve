@@ -1,5 +1,6 @@
 """データアップロードと前処理ページ"""
 
+from io import BytesIO
 from typing import Any
 
 import numpy as np
@@ -516,6 +517,9 @@ def _render_preprocessing_comparison(
             
             # 統計情報
             _render_data_statistics(original_x, original_y, processed_x, processed_y)
+            
+            # エクスポートボタン
+            _render_export_button(processed_dataset, x_col, y_col, preprocessing_options)
 
 
 def _build_comparison_axis_labels(
@@ -624,3 +628,88 @@ def _render_single_dataset_statistics(
             with ui.row().classes('gap-2'):
                 ui.label(f'{key}:').classes('font-bold')
                 ui.label(str(value))
+
+
+def _render_export_button(
+    dataset: Dataset,
+    x_col: str,
+    y_col: str,
+    preprocessing_options: PreprocessingOptions
+) -> None:
+    """前処理後のデータをエクスポートするボタンを表示"""
+    with ui.card().classes('w-full p-4 mt-4 bg-green-50'):
+        ui.label('データのエクスポート').classes('text-lg font-bold mb-2')
+        ui.label('前処理後のデータをCSVファイルとしてダウンロードできます').classes('text-sm text-grey-7 mb-3')
+        
+        def export_csv() -> bytes:
+            """CSVデータを生成"""
+            # データフレームをコピーして、カラム名を変更
+            df = dataset.data.copy()
+            
+            # 前処理内容に応じてカラム名を決定
+            new_column_names = _get_export_column_names(x_col, y_col, preprocessing_options)
+            
+            # カラム名を変更（x_col, y_colが存在する場合のみ）
+            rename_dict = {}
+            if x_col in df.columns:
+                rename_dict[x_col] = new_column_names['x']
+            if y_col in df.columns:
+                rename_dict[y_col] = new_column_names['y']
+            
+            if rename_dict:
+                df = df.rename(columns=rename_dict)
+            
+            # BytesIOを使用してCSVデータを生成
+            buffer = BytesIO()
+            df.to_csv(buffer, index=False, encoding='utf-8-sig')
+            buffer.seek(0)
+            return buffer.getvalue()
+        
+        # ダウンロードボタン
+        ui.button(
+            '前処理後データをCSVでダウンロード',
+            icon='download',
+            on_click=lambda: ui.download(
+                export_csv(),
+                filename=f'{dataset.id}_processed.csv'
+            )
+        ).props('color=positive').classes('w-full')
+
+
+def _get_export_column_names(
+    x_col: str,
+    y_col: str,
+    preprocessing_options: PreprocessingOptions
+) -> dict[str, str]:
+    """エクスポート時のカラム名を決定
+    
+    Args:
+        x_col: X軸のカラム名
+        y_col: Y軸のカラム名
+        preprocessing_options: 前処理オプション
+        
+    Returns:
+        dict: 'x', 'y'のキーを持つ辞書（新しいカラム名）
+    """
+    convert_true = preprocessing_options.get('convert_true', False)
+    convert_plastic = preprocessing_options.get('convert_plastic', False)
+    
+    # 塑性ひずみに変換した場合
+    if convert_plastic:
+        return {
+            'x': 'plastic_strain',
+            'y': 'true_stress'
+        }
+    
+    # 真ひずみに変換した場合
+    if convert_true:
+        return {
+            'x': 'true_strain',
+            'y': 'true_stress'
+        }
+    
+    # どちらも変換していない場合は元のカラム名を使用
+    return {
+        'x': x_col,
+        'y': y_col
+    }
