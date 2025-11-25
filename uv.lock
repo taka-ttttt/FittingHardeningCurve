@@ -578,7 +578,7 @@ wheels = [
 ]
 
 [[package]]
-name = "fitcurve"
+name = "fittinghardeningcurve"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
