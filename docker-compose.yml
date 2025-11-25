@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  fitcurve:
+    build: .
+    container_name: fitcurve
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env.docker
+    volumes:
+      - ./data:/app/data
+    restart: always
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8080')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+  # Nginx リバースプロキシ（オプション）
+  nginx:
+    image: nginx:alpine
+    container_name: fitcurve-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./deploy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./deploy/ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - fitcurve
+    restart: always
+    profiles:
+      - with-nginx
+
+

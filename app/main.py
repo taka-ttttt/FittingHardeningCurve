@@ -54,9 +54,11 @@ def main():
     logger.info('FitCurve アプリケーションを起動します')
     logger.info(f'環境: {settings.app_env}')
     logger.info(f'ポート: {settings.app_port}')
+    logger.info(f'ホスト: {settings.app_host}')
     
     ui.run(
         title='FitCurve - Curve Fitting Tool',
+        host=settings.app_host,
         port=settings.app_port,
         reload=settings.debug,
         show=settings.debug,

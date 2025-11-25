@@ -19,6 +19,7 @@ class Settings(BaseSettings):
     # アプリケーション基本設定
     app_env: Literal["development", "production"] = "development"
     app_debug: bool = True
+    app_host: str = "127.0.0.1"  # 本番環境では "0.0.0.0" を推奨
     app_port: int = 5173
     
     # ディレクトリ設定
