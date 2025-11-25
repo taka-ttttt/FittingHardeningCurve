@@ -28,7 +28,7 @@ def create_drawer(current_path: str = '/') -> ui.drawer:
             # ロゴ
             # with ui.row().classes('items-center gap-3 mb-4'):
             #     ui.icon('science', size='32px').classes('text-primary')
-            #     ui.label('FitCurve').classes('text-xl font-bold')
+            #     ui.label('FittingHardeningCurve').classes('text-xl font-bold')
             
             # ui.separator()
             
@@ -98,7 +98,7 @@ def create_header(current_path: str = '/') -> None:
                 ui.button(icon='menu', on_click=drawer.toggle).props('flat round').classes('text-white')
                 
                 ui.icon('science', size='32px')
-                ui.label('FitCurve').classes('text-2xl font-bold')
+                ui.label('FittingHardeningCurve').classes('text-2xl font-bold')
             
             # デスクトップ用メニュー（オプション）
             # with ui.row().classes('gap-2 lg:flex'):
@@ -110,9 +110,9 @@ def create_footer() -> None:
     """フッターを作成"""
     with ui.footer().classes('bg-grey-2 text-grey-7 py-4'):
         with ui.row().classes('w-full items-center justify-center gap-4'):
-            ui.label('FitCurve v0.1.0')
+            ui.label('FittingHardeningCurve v0.1.0')
             ui.label('|')
-            ui.link('GitHub', 'https://github.com/taka-ttttt/fitCurve', new_tab=True)
+            ui.link('GitHub', 'https://github.com/taka-ttttt/FittingHardeningCurve', new_tab=True)
 
 
 @contextmanager

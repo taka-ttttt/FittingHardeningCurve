@@ -1,4 +1,4 @@
-"""FitCurve - メインエントリポイント"""
+"""FittingHardeningCurve - メインエントリポイント"""
 
 from nicegui import app, ui
 
@@ -51,13 +51,13 @@ app.add_static_files('/data', str(settings.data_dir))
 
 def main():
     """アプリケーション起動"""
-    logger.info('FitCurve アプリケーションを起動します')
+    logger.info('FittingHardeningCurve アプリケーションを起動します')
     logger.info(f'環境: {settings.app_env}')
     logger.info(f'ポート: {settings.app_port}')
     logger.info(f'ホスト: {settings.app_host}')
     
     ui.run(
-        title='FitCurve - Curve Fitting Tool',
+        title='FittingHardeningCurve - Curve Fitting Tool',
         host=settings.app_host,
         port=settings.app_port,
         reload=settings.debug,

@@ -1,10 +1,10 @@
 #!/bin/bash
-# FitCurve EC2 セットアップスクリプト（Docker版）
+# FittingHardeningCurve EC2 セットアップスクリプト（Docker版）
 # Ubuntu 22.04用
 
 set -e
 
-echo "=== FitCurve EC2 Docker セットアップ開始 ==="
+echo "=== FittingHardeningCurve EC2 Docker セットアップ開始 ==="
 
 # 色付き出力用
 RED='\033[0;31m'
@@ -14,8 +14,8 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # 変数
-GITHUB_REPO="${1:-https://github.com/your-username/fitCurve.git}"
-INSTALL_DIR="$HOME/fitCurve"
+GITHUB_REPO="${1:-https://github.com/taka-ttttt/FittingHardeningCurve.git}"
+INSTALL_DIR="$HOME/FittingHardeningCurve"
 
 echo -e "${BLUE}=== 環境情報 ===${NC}"
 echo "OS: $(lsb_release -ds)"
@@ -154,7 +154,7 @@ fi
 # ============================================
 echo ""
 echo -e "${GREEN}========================================${NC}"
-echo -e "${GREEN}  FitCurve セットアップ完了！ 🎉${NC}"
+echo -e "${GREEN}  FittingHardeningCurve セットアップ完了！ 🎉${NC}"
 echo -e "${GREEN}========================================${NC}"
 echo ""
 

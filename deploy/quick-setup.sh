@@ -1,5 +1,5 @@
 #!/bin/bash
-# FitCurve クイックセットアップスクリプト
+# FittingHardeningCurve クイックセットアップスクリプト
 # 1コマンドでEC2にデプロイ
 
 set -e
@@ -9,14 +9,14 @@ GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-echo -e "${GREEN}=== FitCurve クイックセットアップ ===${NC}"
+echo -e "${GREEN}=== FittingHardeningCurve クイックセットアップ ===${NC}"
 echo ""
 
 # GitHubリポジトリURL（必要に応じて変更）
-REPO_URL="${1:-https://github.com/your-username/fitCurve.git}"
+REPO_URL="${1:-https://github.com/taka-ttttt/FittingHardeningCurve.git}"
 
 echo -e "${BLUE}1. セットアップスクリプトをダウンロード${NC}"
-curl -fsSL https://raw.githubusercontent.com/your-username/fitCurve/main/deploy/setup_vps.sh -o setup.sh
+curl -fsSL https://raw.githubusercontent.com/taka-ttttt/FittingHardeningCurve/main/deploy/setup_vps.sh -o setup.sh
 
 echo -e "${BLUE}2. セットアップスクリプトを実行${NC}"
 chmod +x setup.sh

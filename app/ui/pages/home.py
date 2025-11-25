@@ -12,7 +12,7 @@ def render() -> None:
         # ヘッダー
         with ui.row().classes('items-center gap-4 mb-4'):
             ui.icon('science', size='48px').classes('text-primary')
-            ui.label('FitCurve').classes('text-5xl font-bold text-primary')
+            ui.label('FittingHardeningCurve').classes('text-5xl font-bold text-primary')
         
         ui.label('カーブフィッティングWebアプリケーション').classes('text-xl text-grey-7 mb-6')
         

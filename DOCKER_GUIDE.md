@@ -1,6 +1,6 @@
 # 🐳 Docker 環境セットアップガイド
 
-このガイドでは、FitCurveをDocker環境で動かす方法を説明します。
+このガイドでは、FittingHardeningCurveをDocker環境で動かす方法を説明します。
 
 ---
 
@@ -78,7 +78,7 @@ newgrp docker
 ### Step 1: プロジェクトディレクトリへ移動
 
 ```bash
-cd /path/to/fitCurve
+cd /path/to/FittingHardeningCurve
 ```
 
 ### Step 2: 環境変数ファイルの作成
@@ -133,7 +133,7 @@ docker compose up
 http://localhost:8080
 ```
 
-FitCurveのホームページが表示されれば成功です！
+FittingHardeningCurveのホームページが表示されれば成功です！
 
 #### ログの確認
 

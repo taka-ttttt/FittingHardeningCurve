@@ -1,4 +1,4 @@
-"""FitCurve - カーブフィッティングアプリケーション"""
+"""FittingHardeningCurve - カーブフィッティングアプリケーション"""
 
 __version__ = "0.1.0"
 

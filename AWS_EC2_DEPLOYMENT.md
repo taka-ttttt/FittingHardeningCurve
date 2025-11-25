@@ -1,6 +1,6 @@
 # ☁️ AWS EC2 デプロイメントガイド
 
-このガイドでは、FitCurveをAWS EC2上でDockerを使ってデプロイする方法を詳しく説明します。
+このガイドでは、FittingHardeningCurveをAWS EC2上でDockerを使ってデプロイする方法を詳しく説明します。
 
 ---
 
@@ -253,10 +253,10 @@ cd ~
 sudo apt install -y git
 
 # リポジトリをクローン
-git clone https://github.com/your-username/fitCurve.git
+git clone https://github.com/taka-ttttt/FittingHardeningCurve.git
 
 # プロジェクトディレクトリに移動
-cd fitCurve
+cd FittingHardeningCurve
 ```
 
 ### Step 2: 環境変数の設定
@@ -407,7 +407,7 @@ sudo apt install -y certbot
 
 ```bash
 # FitCurveコンテナを一時停止（80ポートを空けるため）
-cd ~/fitCurve
+cd ~/FittingHardeningCurve
 docker compose stop
 
 # 証明書を取得
@@ -443,7 +443,7 @@ chmod 644 ~/fitCurve/deploy/ssl/*.pem
 
 ```bash
 # Nginxリバースプロキシを含めて起動
-cd ~/fitCurve
+cd ~/FittingHardeningCurve
 docker compose --profile with-nginx up -d
 
 # ログを確認
@@ -469,7 +469,7 @@ Let's Encrypt証明書は90日で期限切れになるため、自動更新を�
 crontab -e
 
 # エディタが開いたら、以下を追加（毎日午前3時に更新チェック）
-0 3 * * * sudo certbot renew --quiet --deploy-hook "cd ~/fitCurve && docker compose restart nginx"
+0 3 * * * sudo certbot renew --quiet --deploy-hook "cd ~/FittingHardeningCurve && docker compose restart nginx"
 
 # 保存して終了（nano: Ctrl+X, Y, Enter）
 ```
@@ -497,7 +497,7 @@ After=docker.service
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-WorkingDirectory=/home/ubuntu/fitCurve
+WorkingDirectory=/home/ubuntu/FittingHardeningCurve
 ExecStart=/usr/bin/docker compose up -d
 ExecStop=/usr/bin/docker compose down
 TimeoutStartSec=0
@@ -573,7 +573,7 @@ docker system prune -a
 
 ```bash
 # 最新のコードを取得
-cd ~/fitCurve
+cd ~/FittingHardeningCurve
 git pull origin main
 
 # イメージを再ビルド

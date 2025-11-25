@@ -1,5 +1,5 @@
 [project]
-name = "fitcurve"
+name = "fittinghardeningcurve"
 version = "0.1.0"
 description = "カーブフィッティングWebアプリケーション - NiceGUI + Plotly"
 readme = "README.md"

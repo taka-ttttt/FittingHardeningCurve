@@ -1,4 +1,4 @@
-# FitCurve - カーブフィッティングツール
+# FittingHardeningCurve - カーブフィッティングツール
 
 <div align="center">
 
@@ -28,9 +28,9 @@ NiceGUIとPlotlyを使用した、モダンで拡張性の高いカーブフィ�
 
 ## 概要
 
-FitCurveは、科学技術計算やデータ分析のためのカーブフィッティングツールです。直感的なWebインターフェースと堅牢なアーキテクチャにより、簡単かつ正確なデータ解析を実現します。
+FittingHardeningCurveは、科学技術計算やデータ分析のためのカーブフィッティングツールです。直感的なWebインターフェースと堅牢なアーキテクチャにより、簡単かつ正確なデータ解析を実現します。
 
-### ✨ なぜFitCurve？
+### ✨ なぜFittingHardeningCurve？
 
 - 🎨 **モダンなUI**: NiceGUI + Quasarコンポーネントによる美しいインターフェース
 - 🔧 **拡張性**: Registryパターンにより新しいモデルの追加が容易
@@ -80,8 +80,8 @@ FitCurveは、科学技術計算やデータ分析のためのカーブフィッ
 
 ```bash
 # 1. リポジトリのクローン
-git clone https://github.com/taka-ttttt/fitCurve.git
-cd fitCurve
+git clone https://github.com/taka-ttttt/FittingHardeningCurve.git
+cd FittingHardeningCurve
 
 # 2. 依存関係のインストール
 uv sync
@@ -130,7 +130,7 @@ docker compose up -d
 
 ### 🌐 AWS EC2にデプロイする
 
-本番環境でFitCurveをインターネット上に公開する場合：
+本番環境でFittingHardeningCurveをインターネット上に公開する場合：
 
 #### クイックスタート（3ステップ）
 
@@ -139,7 +139,7 @@ docker compose up -d
 ssh -i your-key.pem ubuntu@your-ec2-ip
 
 # 2. セットアップスクリプトを実行
-bash <(curl -fsSL https://raw.githubusercontent.com/taka-ttttt/fitCurve/main/deploy/setup_vps.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/taka-ttttt/FittingHardeningCurve/main/deploy/setup_vps.sh)
 
 # 3. ブラウザでアクセス
 # http://your-ec2-ip:8080
@@ -247,7 +247,7 @@ fitcurve/
 
 ## アーキテクチャの特徴
 
-FitCurveは、モダンなWebアプリケーション開発のベストプラクティスに基づいて設計されています。
+FittingHardeningCurveは、モダンなWebアプリケーション開発のベストプラクティスに基づいて設計されています。
 
 ### 1. 🏭 Registryパターン
 
@@ -513,7 +513,7 @@ docker compose up -d
 
 ```bash
 # EC2接続後
-bash <(curl -fsSL https://raw.githubusercontent.com/taka-ttttt/fitCurve/main/deploy/setup_vps.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/taka-ttttt/FittingHardeningCurve/main/deploy/setup_vps.sh)
 ```
 
 詳細: **[AWS_EC2_DEPLOYMENT.md](./AWS_EC2_DEPLOYMENT.md)**
@@ -536,6 +536,6 @@ MIT License
 
 <div align="center">
 
-**Enjoy FitCurve! 🔬📊✨**
+**Enjoy FittingHardeningCurve! 🔬📊✨**
 
 </div>

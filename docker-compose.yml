@@ -1,9 +1,7 @@
-version: '3.8'
-
 services:
-  fitcurve:
+  fittinghardeningcurve:
     build: .
-    container_name: fitcurve
+    container_name: fittinghardeningcurve
     ports:
       - "8080:8080"
     env_file:
@@ -21,7 +19,7 @@ services:
   # Nginx リバースプロキシ（オプション）
   nginx:
     image: nginx:alpine
-    container_name: fitcurve-nginx
+    container_name: fittinghardeningcurve-nginx
     ports:
       - "80:80"
       - "443:443"
@@ -29,7 +27,7 @@ services:
       - ./deploy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
       - ./deploy/ssl:/etc/nginx/ssl:ro
     depends_on:
-      - fitcurve
+      - fittinghardeningcurve
     restart: always
     profiles:
       - with-nginx

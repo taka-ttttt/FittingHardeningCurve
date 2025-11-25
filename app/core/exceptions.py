@@ -2,7 +2,7 @@
 
 
 class FitCurveException(Exception):
-    """FitCurveアプリケーションのベース例外"""
+    """FittingHardeningCurveアプリケーションのベース例外"""
     pass
 
 
