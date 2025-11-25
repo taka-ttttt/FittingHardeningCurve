@@ -13,7 +13,7 @@ ENV PATH="/root/.local/bin:${PATH}"
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # アプリケーションファイルのコピー
-COPY pyproject.toml uv.lock ./
+COPY pyproject.toml uv.lock README.md ./
 COPY app/ ./app/
 COPY scripts/ ./scripts/
 
